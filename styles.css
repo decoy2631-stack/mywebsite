@@ -1,0 +1,44 @@
+/* Base reset + nicer defaults */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: hotpink;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+/* Text */
+p {
+  margin: 0.5rem 0 0;
+  color: #111;
+  font-size: 1rem;
+}
+
+/* Card-style container */
+.box {
+  width: min(320px, 90vw);
+  padding: 1.25rem 1rem;
+  text-align: center;
+  border: 2px solid #111;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* Image */
+#hello {
+  width: clamp(120px, 40vw, 170px);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+}

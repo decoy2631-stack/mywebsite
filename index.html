@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="box"> 
+        <img id="hello" src="kuromi.png" alt="Hello Kitty">
+
+        <img id="gif" src="cat.gif" alt="Cat gif" style="display:none;">
+
+        <p id="text1">Sanjana will you be my Valentine?👉👈</p>
+        <p id="text2" style="display:none;">yipieeeeee!</p>
+
+        <button type="button" onclick="playGif()">Yes</button>
+        <button type="button" id="noBtn">No</button>
+    </div>
+
+    <script>
+        function playGif() {
+            document.getElementById("hello").style.display = "none";
+            document.getElementById("text1").style.display = "none";
+
+            const gif = document.getElementById("gif");
+           
+            gif.style.display = "block";
+            gif.src = gif.src; // restart gif
+
+
+            document.getElementById("text2").style.display = "block";
+            document.querySelectorAll("button").forEach(btn => {
+            btn.style.display = "none";
+        });
+        }
+
+        const noBtn = document.getElementById("noBtn");
+
+        noBtn.addEventListener("mouseenter", () => {
+            const box = document.querySelector(".box");
+
+            const boxRect = box.getBoundingClientRect();
+            const btnRect = noBtn.getBoundingClientRect();
+
+            const maxX = boxRect.width - btnRect.width;
+            const maxY = boxRect.height - btnRect.height;
+
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            noBtn.style.position = "absolute";
+            noBtn.style.left = randomX + "px";
+            noBtn.style.top = randomY + "px";
+        });
+    </script>
+</body>
+</html>
